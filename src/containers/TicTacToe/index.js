@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import PropTypes from 'prop-types';
 import { StyledTicTacToe } from "./Styled";
 import { NOUSE, CROSS, TOGGLE, GAME_SCALE_OPTIONS, WINNER_CONDITION_OPTIONS } from "./constants";
 import { initBlocks, checkWin } from "./utils";
@@ -9,14 +10,14 @@ const INIT_WIN_STATE = {
   isGameFinished: false,
   winner: NOUSE
 };
-const TicTacToe = ({ setting, setSetting }) => {
+const TicTacToe = ({ setting }) => {
   const { gameScale } = setting;
   const [isWin, setWin] = useState(INIT_WIN_STATE);
   const [blocks, setBlocks] = useState(initBlocks());
   const [currentRole, setCurrentRole] = useState(CROSS);
   const [isSinglePlay, setSinglePlay] = useState(false);
 
-  const handleOnRestartClick = event => {
+  const handleOnRestartClick = () => {
     setCurrentRole(CROSS);
 
     setBlocks(initBlocks());
@@ -24,15 +25,15 @@ const TicTacToe = ({ setting, setSetting }) => {
     setWin(INIT_WIN_STATE);
   };
 
-  const handleOnToggleSwitchClick = event => {
+  const handleOnToggleSwitchClick = () => {
     setSinglePlay(!isSinglePlay);
   };
 
-  const handleOnWinnerConditionSelected = event => {
+  const handleOnWinnerConditionSelected = () => {
 
   };
 
-  const handleOnGameScaleSelected = event => {
+  const handleOnGameScaleSelected = () => {
 
   };
 
@@ -105,7 +106,7 @@ const TicTacToe = ({ setting, setSetting }) => {
       >
         Restart
       </button>
-      
+
       <div className="tic-tac-toe__setting-group-wrapper">
         <div className="tic-tac-toe__setting-group">
 
@@ -125,6 +126,10 @@ const TicTacToe = ({ setting, setSetting }) => {
       </div>
     </StyledTicTacToe>
   );
+};
+
+TicTacToe.propTypes = {
+  setting: PropTypes.object,
 };
 
 export default TicTacToe;

@@ -23,7 +23,7 @@ const crossMixin = (gameScale, angle) => `
     width: 110%;
     background: black;
     position: absolute;
-    height: ${ 4.5 / gameScale }em;
+    height: ${ 4.5 / gameScale}em;
     transform: rotate(${angle}deg);
 `;
 
@@ -37,13 +37,13 @@ export const StyledTicTacToe = styled.div`
         }
         display: grid;
         ${(props) => {
-            const gameScale = props.gameScale;
-            return `
+        const gameScale = props.gameScale;
+        return `
                 grid-template-columns: repeat(${gameScale}, 1fr);
                 grid-template-rows: repeat(${gameScale}, 1fr);
-                grid-gap: ${45/gameScale}px ${45/gameScale}px;
+                grid-gap: ${45 / gameScale}px ${45 / gameScale}px;
             `;
-        }}
+    }}
     }
     .tic-tac-toe__item {
         outline: none;
@@ -77,15 +77,15 @@ export const StyledTicTacToe = styled.div`
             justify-content: center;
             &:before {
                 ${(props) => {
-                    const gameScale = props.gameScale;
-                    return crossMixin(gameScale, 45);
-                }}
+        const gameScale = props.gameScale;
+        return crossMixin(gameScale, 45);
+    }}
             }
             &:after {
                 ${(props) => {
-                    const gameScale = props.gameScale;
-                    return crossMixin(gameScale, -45);
-                }}
+        const gameScale = props.gameScale;
+        return crossMixin(gameScale, -45);
+    }}
             }
         }
     }

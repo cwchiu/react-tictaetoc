@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 const Selection = ({ options, handleOnSelect }) => (
     <select onChange={handleOnSelect}>
@@ -14,5 +15,10 @@ const Selection = ({ options, handleOnSelect }) => (
         }
     </select>
 );
+
+Selection.propTypes = {
+    options: PropTypes.array,
+    handleOnSelect: PropTypes.func
+};
 
 export default Selection;

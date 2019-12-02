@@ -2,7 +2,6 @@ import { CIRCLE, CROSS } from "./constants";
 import React from "react";
 import Cross from "./components/Cross/index";
 import Circle from "./components/Circle/index";
-const _ = require("lodash");
 
 export class Block {
   constructor(id, owner = 0) {
@@ -25,10 +24,6 @@ export class Block {
       return <Cross theme={theme} />;
     }
     return null;
-  }
-
-  get(v) {
-    return this.id;
   }
 }
 
@@ -64,16 +59,13 @@ const WIN_CASE = [
 export const checkWin = (blocks) => {
 
   for (let item of WIN_CASE) {
-    //console.log(item);
-    console.log(blocks.filter(block => item.includes(block.id)));
-    const sum = blocks.filter(block => item.includes(block.id)).reduce((c,block) => c + block.owner, 0);
+    const sum = blocks.filter(block => item.includes(block.id)).reduce((c, block) => c + block.owner, 0);
 
     if (Math.abs(sum) === 3) {
       return sum > 0 ? CIRCLE : CROSS;
     }
 
   }
-  console.log('result: false');
   return 0;
 };
 
