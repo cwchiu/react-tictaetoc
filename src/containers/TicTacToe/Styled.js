@@ -110,7 +110,7 @@ export const StyledTicTacToe = styled.div`
         }
     }
     .tic-tac-toe__setting-group-wrapper {
-        display: grid;
+        display: none;
         grid-template-columns: repeat(2, 1fr);
         grid-template-rows: repeat(2, 40px);
         justify-content: space-between;
