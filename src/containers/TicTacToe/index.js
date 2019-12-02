@@ -92,8 +92,8 @@ const TicTacToe = ({ setting }) => {
         {blocks.map(block => (
           <div
             className="tic-tac-toe__item"
-            key={block.get("id")}
-            data-id={block.get("id")}
+            key={block.id}
+            data-id={block.id}
             onClick={handleClick}
           >
             {block.draw()}
